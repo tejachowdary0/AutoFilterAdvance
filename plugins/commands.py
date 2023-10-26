@@ -40,11 +40,12 @@ async def start(client, message):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
-        buttons = [[
+        buttons =  [[
+                    InlineKeyboardButton('🔷 GROUP 1 🔷', url="https://t.me/request_bots"),
+                    InlineKeyboardButton('🔷 GROUP 2 🔷', url='https://t.me/+JBAQJvocrkBhMmNl')
+                ],[
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-            ],[
-            InlineKeyboardButton('♻️ Search Here ♻️', switch_inline_query_current_chat='')
-            ],[
+        ],[
             InlineKeyboardButton('ℹ️ Help', callback_data='help'),
             InlineKeyboardButton('😊 About', callback_data='about')
         ]]
@@ -63,12 +64,13 @@ async def start(client, message):
             return
 
         buttons = [[
+                    InlineKeyboardButton('🔷 GROUP 1 🔷', url="https://t.me/request_bots"),
+                    InlineKeyboardButton('🔷 GROUP 2 🔷', url='https://t.me/+JBAQJvocrkBhMmNl')
+                ],[
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-            ],[
-            InlineKeyboardButton('♻️ Search Here ♻️', switch_inline_query_current_chat='')
-            ],[
+        ],[
             InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            InlineKeyboardButton('😊 About',callback_data='about')
+            InlineKeyboardButton('😊 About', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
