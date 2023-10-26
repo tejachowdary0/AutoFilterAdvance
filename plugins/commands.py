@@ -63,7 +63,12 @@ async def start(client, message):
             return
 
         buttons = [[
-            
+            InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            ],[
+            InlineKeyboardButton('♻️ Search Here ♻️', switch_inline_query_current_chat='')
+            ],[
+            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
+            InlineKeyboardButton('😊 About',
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -88,12 +93,7 @@ async def start(client, message):
     if data.split("-", 1)[0] == "BATCH":
         sts = await message.reply("Please wait")
         file_id = data.split("-", 1)[1]
-       InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-            ],[
-            InlineKeyboardButton('♻️ Search Here ♻️', switch_inline_query_current_chat='')
-            ],[
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            InlineKeyboardButton('😊 About', callback_data='about') msgs = BATCH_FILES.get(file_id)
+        msgs = BATCH_FILES.get(file_id)
         if not msgs:
             file = await client.download_media(file_id)
             try: 
