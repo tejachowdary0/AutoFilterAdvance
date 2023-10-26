@@ -22,8 +22,10 @@ BATCH_FILES = {}
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
-        buttons = [
-            [
+        buttons = [[
+            
+                    InlineKeyboardButton('🔗 MAIN CHANNEL🔗', url=https://t.me/Chowdary_Channels)
+            ],[
                 InlineKeyboardButton("♦️ Group 1 ♦️", url="https://t.me/Request_bots"),
                 InlineKeyboardButton("♦️ Group 2 ♦️", url="https://t.me/request_robots")
             ]
